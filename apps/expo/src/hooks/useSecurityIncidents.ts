@@ -37,7 +37,7 @@ export const useSecurityIncidents = (params?: ListIncidentsParams) => {
     queryKey: ["securityIncidents", params],
     queryFn: () => listIncidents(params),
     staleTime: 0,
-    refetchInterval: 5000, // Refetch every 5 seconds
+    refetchInterval: params?.status == "Open" ? 5000 : false, // Refetch every 5 seconds if status is "Open"
   });
 };
 

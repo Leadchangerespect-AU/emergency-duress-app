@@ -25,10 +25,10 @@ jobs:
         dotnet-version: ["8.0.x"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
 
@@ -59,21 +59,21 @@ jobs:
             "-reporttypes:Html"
 
       - name: Upload Cobertura XML Coverage Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: api-coverage-xml
           path: apps/Api/coverage
           retention-days: 14
 
       - name: Upload HTML Coverage Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: api-coverage-html
           path: apps/Api/coverage-report
           retention-days: 14
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: api-build
           path: |
@@ -94,7 +94,7 @@ jobs:
   #     security-events: write
 
   #   steps:
-  #     - uses: actions/checkout@v4
+  #     - uses: actions/checkout@v5
 
   #     - name: Initialize CodeQL
   #       uses: github/codeql-action/init@v3
@@ -102,7 +102,7 @@ jobs:
   #         languages: csharp
 
   #     - name: Setup .NET Core SDK
-  #       uses: actions/setup-dotnet@v4
+  #       uses: actions/setup-dotnet@v5
   #       with:
   #         dotnet-version: "8.0.x"
 
